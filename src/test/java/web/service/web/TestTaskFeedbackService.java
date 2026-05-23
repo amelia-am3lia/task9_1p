@@ -51,7 +51,8 @@ public class TestTaskFeedbackService {
 	public void testNotSubmittedDueTodaySuccess() {
 		LocalDate dueDate = LocalDate.now(); 
 		LocalDate dateSubmitted = null;
-		Assert.assertTrue(TaskFeedbackService.Verification(dateSubmitted, dueDate) == "Feedback will be given on your assessment if submitted today.");
+		Assert.assertTrue(TaskFeedbackService.Verification(dateSubmitted, dueDate) == 
+				"Feedback will be given on your assessment if submitted today.");
 	}
 	
 }

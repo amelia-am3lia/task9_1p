@@ -10,6 +10,9 @@ public class TaskFeedbackService{
 			if (LocalDate.now().isBefore(DueDate)) {
 				return "Feedback will be given on your assessment if submitted by the due date.";
 			}
+			if(LocalDate.now().isEqual(DueDate)) {
+				return "Feedback will be given on your assessment if submitted today.";
+			}
 		}
 		
 		if(DateSubmitted.isBefore(DueDate) || DateSubmitted.isEqual(DueDate)) {
