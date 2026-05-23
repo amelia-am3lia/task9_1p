@@ -27,4 +27,12 @@ public class TestTaskFeedbackService {
 		LocalDate dateSubmitted = LocalDate.parse("2010-06-01");
 		Assert.assertTrue(TaskFeedbackService.Verification(dateSubmitted, dueDate) == "Feedback will be given on your assessment.");
 	}
+	
+	// if the assessment has not been submitted (no date) and the due date has passed, the student will not receive feedback
+	@Test 
+	public void testNotSubmittedPassedDueSuccess() {
+		LocalDate dueDate = LocalDate.parse("2010-06-01"); 
+		LocalDate dateSubmitted = LocalDate.parse(null);
+		Assert.assertTrue(TaskFeedbackService.Verification(dateSubmitted, dueDate) == "Feedback will not be given on your assessment.");
+	}
 }
