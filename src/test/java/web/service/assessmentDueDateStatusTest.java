@@ -7,7 +7,7 @@ public class assessmentDueDateStatusTest {
 	public void feedbackExpectedWhenAssessmentOnTime(Assessment assessment) {
 		LocalDate dueDate = assessment.DateDue(); 
 		Bool pastDue;
-		if(dueDate > LocalDate.now()) {
+		if(dueDate.isAfter(LocalDate.now())) {
 			pastDue = true;
 		}
 	}
