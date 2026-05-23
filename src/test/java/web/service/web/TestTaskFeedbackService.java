@@ -7,6 +7,6 @@ public class TestTaskFeedbackService {
 	public void testSubmittedBeforeDueSuccess() {
 		LocalDate dueDate; 
 		LocalDate dateSubmitted;
-		TaskFeedbackService.Verification(dateSubmitted, dueDate);
+		String Result = TaskFeedbackService.Verification(dateSubmitted, dueDate);
 	}
 }
