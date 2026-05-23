@@ -4,9 +4,9 @@ import java.time.LocalDate;
 
 public class TestTaskFeedbackService {
 	@Test 
-	public static void testSubmittedBeforeDueSuccess() {
+	public void testSubmittedBeforeDueSuccess() {
 		LocalDate dueDate; 
 		LocalDate dateSubmitted;
-		String Result = TaskFeedbackService.Verification(dateSubmitted, dueDate);
+		String output = TaskFeedbackService.Verification(dateSubmitted, dueDate);
 	}
 }
