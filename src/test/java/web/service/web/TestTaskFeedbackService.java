@@ -45,4 +45,13 @@ public class TestTaskFeedbackService {
 		Assert.assertTrue(TaskFeedbackService.Verification(dateSubmitted, dueDate) == "Feedback will be given on your assessment if submitted by the due date.");
 	}
 	
+	// if the assessment has not been submitted (no date) and the due date is today, 
+	// the student will receive if they submit today
+	@Test 
+	public void testNotSubmittedDueTodaySuccess() {
+		LocalDate dueDate = LocalDate.now(); 
+		LocalDate dateSubmitted = null;
+		Assert.assertTrue(TaskFeedbackService.Verification(dateSubmitted, dueDate) == "Feedback will be given on your assessment if submitted today.");
+	}
+	
 }
