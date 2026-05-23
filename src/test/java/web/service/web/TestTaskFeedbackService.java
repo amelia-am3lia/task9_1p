@@ -14,9 +14,17 @@ public class TestTaskFeedbackService {
 	
 	// if the assessmeent was submitted after the due date, the student will not receive feedback
 	@Test 
-	public void testSubmittedAfterDueFail() {
+	public void testSubmittedAfterDueSuccess() {
 		LocalDate dueDate = LocalDate.parse("2010-01-01"); 
 		LocalDate dateSubmitted = LocalDate.parse("2010-01-10");
 		Assert.assertTrue(TaskFeedbackService.Verification(dateSubmitted, dueDate) == "Feedback will not be given on your assessment.");
+	}
+	
+	// if the assessment was submitted on the due date, the student will receive feedback
+	@Test 
+	public void testSubmittedEqualsDueSuccess() {
+		LocalDate dueDate = LocalDate.parse("2010-06-01"); 
+		LocalDate dateSubmitted = LocalDate.parse("2010-06-01");
+		Assert.assertTrue(TaskFeedbackService.Verification(dateSubmitted, dueDate) == "Feedback will be given on your assessment.");
 	}
 }
