@@ -6,7 +6,7 @@ public class TestTaskFeedbackService {
 	@Test 
 	public void testSubmittedBeforeDueSuccess() {
 		LocalDate dueDate; 
-		Localdate dateSubmitted;
+		LocalDate dateSubmitted;
 		TaskFeedbackService feedbackChecker = new TaskFeedbackService();
 	}
 }
