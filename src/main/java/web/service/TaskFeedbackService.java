@@ -7,7 +7,7 @@ public class TaskFeedbackService{
 			return "Feedback will be given on your assessment.";
 		}
 		else if (DateSubmitted.isAfter(DueDate) || 
-				(DateSubmitted.isEmpty() && LocalDate.now().isAfter(DueDate))) {
+				(DateSubmitted == null && LocalDate.now().isAfter(DueDate))) {
 			return "Feedback will not be given on your assessment.";
 		}
 		else return "Please contact your tutor.";
