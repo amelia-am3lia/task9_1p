@@ -32,7 +32,7 @@ public class TestTaskFeedbackService {
 	@Test 
 	public void testNotSubmittedPassedDueSuccess() {
 		LocalDate dueDate = LocalDate.parse("2010-06-01"); 
-		LocalDate dateSubmitted = LocalDate.parse(null);
+		LocalDate dateSubmitted = null;
 		Assert.assertTrue(TaskFeedbackService.Verification(dateSubmitted, dueDate) == "Feedback will not be given on your assessment.");
 	}
 }
