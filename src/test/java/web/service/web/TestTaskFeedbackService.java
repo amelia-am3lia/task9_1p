@@ -17,6 +17,6 @@ public class TestTaskFeedbackService {
 	public void testSubmittedAfterDueFail() {
 		LocalDate dueDate = LocalDate.parse("2010-01-01"); 
 		LocalDate dateSubmitted = LocalDate.parse("2010-01-10");
-		Assert.assertFalse(TaskFeedbackService.Verification(dateSubmitted, dueDate) == "Feedback will be given on your assessment.");
+		Assert.assertTrue(TaskFeedbackService.Verification(dateSubmitted, dueDate) == "Feedback will not be given on your assessment.");
 	}
 }
