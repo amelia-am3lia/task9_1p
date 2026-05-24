@@ -135,4 +135,16 @@ public class TestTaskFeedbackService {
 		Assert.assertTrue(TaskFeedbackService.Verification(dateSubmitted, dueDate) == 
 				"No due date found, please contact your tutor for assistance.");
 	}
+	
+	//	test boundaries - (min--, min, min++, middle, max--, max, max++)
+	// min: 2026-02-23
+	// max: 	2026-08-07
+	@Test
+	public void testBelowMinDueSuccess() {
+		LocalDate dueDate = LocalDate.parse("2026-02-22");
+		LocalDate dateSubmitted = LocalDate.parse("2026-03-10");
+		Assert.assertTrue(TaskFeedbackService.Verification(dateSubmitted, dueDate) == 
+				"Entered dates do not fall within the trimester. "
+				+ "Try again or speak with your tutor if special circumstances apply.");
+	}
 }
