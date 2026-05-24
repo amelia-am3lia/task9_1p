@@ -59,11 +59,21 @@ public class TestTaskFeedbackService {
 	
 	// if due date is empty then it is an error and student directed to contact tutor
 	@Test
-	public void testDueDateEmpty() {
+	public void testDueDateEmptySuccess() {
 		LocalDate dueDate = null;
 		LocalDate dateSubmitted = LocalDate.parse("2026-02-10");
 		Assert.assertTrue(TaskFeedbackService.Verification(dateSubmitted, dueDate) == 
 				"No due date found, please contact your tutor for assistance.");
 	}
+	
+	// throw error message if submitted date is invalid
+	@Test
+	public void testSubmittedDateInvalidFail() {
+		LocalDate dueDate = LocalDate.parse("2026-06-10");
+		LocalDate dateSubmitted = "20123-45-67"; //invalid date
+		Assert.assert (TaskFeedbackService.Verification(dateSubmitted, dueDate) == 
+				"No due date found, please contact your tutor for assistance.");
+	}
+
 	
 }
