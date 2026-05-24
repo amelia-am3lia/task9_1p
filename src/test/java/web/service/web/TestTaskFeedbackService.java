@@ -110,7 +110,7 @@ public class TestTaskFeedbackService {
 	
 	// test to check correct result if due date is after semester end
 	@Test
-	public void testDueDateBeforeStartSuccess() {
+	public void testDueDateAfterEndSuccess() {
 		LocalDate dueDate = LocalDate.parse("2027-03-30");
 		LocalDate dateSubmitted = LocalDate.parse("2026-03-10");
 		Assert.assertTrue(TaskFeedbackService.Verification(dateSubmitted, dueDate) == 
