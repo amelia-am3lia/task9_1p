@@ -198,4 +198,11 @@ public class TestTaskFeedbackService {
 				"Entered dates do not fall within the trimester. "
 				+ "Try again or speak with your tutor if special circumstances apply.");
 	}
+	@Test
+	public void testMinSubmitSuccess() {
+		LocalDate dateSubmitted = LocalDate.parse("2026-02-23");
+		LocalDate dueDate = LocalDate.parse("2026-05-07");
+		Assert.assertTrue(TaskFeedbackService.Verification(dateSubmitted, dueDate) == 
+				"Feedback will not be given on your assessment.");
+	}
 }
