@@ -66,14 +66,27 @@ public class TestTaskFeedbackService {
 				"No due date found, please contact your tutor for assistance.");
 	}
 	
+	// scrapping this test, the parameter expects localdate data type so any invalid inputs are blocked by default
 	// throw error message if submitted date is invalid
+	/*
+	 * @Test public void testSubmittedDateInvalidFail() { LocalDate dueDate =
+	 * LocalDate.parse("2026-06-10"); //invalid date entered directly as param
+	 * Assert.assertTrue(TaskFeedbackService.Verification("9999-13-40", dueDate) ==
+	 * "Invalid date. Try again or contact your tutor."); }
+	 */
+	
+	// narrow down scope of acceptable dates - dates outside of the trimester should not be accepted
+	// trimester 1 2026 O week start:23-02-2026
+	// trimester 1 2026 end (supplementary exam period plus one week in case
+	// of special circumstances: Friday 7 August
 	@Test
-	public void testSubmittedDateInvalidFail() {
-		LocalDate dueDate = LocalDate.parse("2026-06-10");
-		//invalid date entered directly as param
-		Assert.assertTrue(TaskFeedbackService.Verification("9999-13-40", dueDate) == 
-				"Invalid date. Try again or contact your tutor.");
+	public void testDueDateEmptySuccess() {
+		LocalDate dueDate = LocalDate.parse("2027-02-10");
+		LocalDate dateSubmitted = LocalDate.parse("2025-02-10");
+		Assert.assertTrue(TaskFeedbackService.Verification(dateSubmitted, dueDate) == 
+				"Entered dates do not fall within the trimester. "
+				+ "Try again or speak with your tutor if special circumstances apply.");
 	}
-
+	
 	 
 }
