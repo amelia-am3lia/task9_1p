@@ -129,7 +129,7 @@ public class TestTaskFeedbackService {
 	
 	// check if both inputs null correct result
 	@Test
-	public void testDueDateEmptySuccess() {
+	public void testNullSubmitAndNullDueSuccess() {
 		LocalDate dueDate = null;
 		LocalDate dateSubmitted = null;
 		Assert.assertTrue(TaskFeedbackService.Verification(dateSubmitted, dueDate) == 
