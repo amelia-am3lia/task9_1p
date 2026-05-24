@@ -126,4 +126,13 @@ public class TestTaskFeedbackService {
 				"Entered dates do not fall within the trimester. "
 				+ "Try again or speak with your tutor if special circumstances apply.");
 	}
+	
+	// check if both inputs null correct result
+	@Test
+	public void testDueDateEmptySuccess() {
+		LocalDate dueDate = null;
+		LocalDate dateSubmitted = null;
+		Assert.assertTrue(TaskFeedbackService.Verification(dateSubmitted, dueDate) == 
+				"No due date found, please contact your tutor for assistance.");
+	}
 }
