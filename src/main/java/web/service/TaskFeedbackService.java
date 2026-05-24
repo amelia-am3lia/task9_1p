@@ -19,7 +19,8 @@ public class TaskFeedbackService{
 				return "Feedback will be given on your assessment if submitted today.";
 			}
 		}
-		if(DateSubmitted.isBefore(TrimesterStart) || DateSubmitted.isAfter(TrimesterEnd)) {
+		if(DateSubmitted.isBefore(TrimesterStart) || DateSubmitted.isAfter(TrimesterEnd)
+				|| DueDate.isBefore(TrimesterStart)) {
 			return "Entered dates do not fall within the trimester. "
 					+ "Try again or speak with your tutor if special circumstances apply.";
 		}
