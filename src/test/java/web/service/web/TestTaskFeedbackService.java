@@ -142,9 +142,16 @@ public class TestTaskFeedbackService {
 	@Test
 	public void testBelowMinDueSuccess() {
 		LocalDate dueDate = LocalDate.parse("2026-02-22");
-		LocalDate dateSubmitted = LocalDate.parse("2026-03-10");
+		LocalDate dateSubmitted = LocalDate.parse("2026-05-07");
 		Assert.assertTrue(TaskFeedbackService.Verification(dateSubmitted, dueDate) == 
 				"Entered dates do not fall within the trimester. "
 				+ "Try again or speak with your tutor if special circumstances apply.");
+	}
+	@Test
+	public void testMinDueSuccess() {
+		LocalDate dueDate = LocalDate.parse("2026-02-23");
+		LocalDate dateSubmitted = LocalDate.parse("2026-05-07");
+		Assert.assertTrue(TaskFeedbackService.Verification(dateSubmitted, dueDate) == 
+				"Feedback will not be given on your assessment.");
 	}
 }
