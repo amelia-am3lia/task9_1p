@@ -6,7 +6,7 @@ public class TestTaskFeedbackService {
 	// if the assessment was submitted before the due date, the student will get feedback
 	@Test 
 	public void testSubmittedBeforeDueSuccess() {
-		LocalDate dueDate = LocalDate.parse("2026-09-10"); 
+		LocalDate dueDate = LocalDate.parse("2026-07-10"); 
 		LocalDate dateSubmitted = LocalDate.parse("2026-03-01");
 		Assert.assertTrue(TaskFeedbackService.Verification(dateSubmitted, dueDate) == "Feedback will be given on your assessment.");
 	}
