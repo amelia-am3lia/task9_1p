@@ -119,7 +119,7 @@ public class TestTaskFeedbackService {
 	}
 	// test to check correct result if both due date and submit date are out of range
 	@Test
-	public void testDueDateAfterEndSuccess() {
+	public void testDueDateAndSubmitDateInvalidSuccess() {
 		LocalDate dueDate = LocalDate.parse("2027-03-30");
 		LocalDate dateSubmitted = LocalDate.parse("2025-03-10");
 		Assert.assertTrue(TaskFeedbackService.Verification(dateSubmitted, dueDate) == 
