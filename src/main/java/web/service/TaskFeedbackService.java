@@ -3,6 +3,8 @@ import java.time.LocalDate;
 
 public class TaskFeedbackService{	
 	public static String Verification(LocalDate DateSubmitted, LocalDate DueDate){
+		LocalDate TrimesterStart = LocalDate.parse("2026-02-23");
+		LocalDate TrimesterEnd = LocalDate.parse("2026-08-07");
 		if(DueDate == null) {
 			return "No due date found, please contact your tutor for assistance.";
 		}
@@ -17,7 +19,10 @@ public class TaskFeedbackService{
 				return "Feedback will be given on your assessment if submitted today.";
 			}
 		}
-		
+		if(DateSubmitted.isBefore(TrimesterStart)) {
+			return "Entered dates do not fall within the trimester. "
+					+ "Try again or speak with your tutor if special circumstances apply.";
+		}
 		if(DateSubmitted.isBefore(DueDate) || DateSubmitted.isEqual(DueDate)) {
 			return "Feedback will be given on your assessment.";
 		}

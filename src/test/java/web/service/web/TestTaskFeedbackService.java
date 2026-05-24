@@ -78,7 +78,7 @@ public class TestTaskFeedbackService {
 	// narrow down scope of acceptable dates - dates outside of the trimester should not be accepted
 	// trimester 1 2026 O week start:23-02-2026
 	// trimester 1 2026 end (supplementary exam period plus one week in case
-	// of special circumstances: Friday 7 August
+	// of special circumstances: 07-08-2026
 	@Test
 	public void testDateSubmittedOutsideBoundsSuccess() {
 		LocalDate dueDate = LocalDate.parse("2026-03-30");
