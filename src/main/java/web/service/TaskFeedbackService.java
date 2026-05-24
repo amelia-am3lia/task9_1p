@@ -3,6 +3,9 @@ import java.time.LocalDate;
 
 public class TaskFeedbackService{	
 	public static String Verification(LocalDate DateSubmitted, LocalDate DueDate){
+		if(DueDate == null) {
+			return "No due date found, please contact your tutor for assistance.";
+		}
 		if (DateSubmitted == null) {
 			if (LocalDate.now().isAfter(DueDate)) {
 			return "Feedback will not be given on your assessment.";
