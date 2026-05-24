@@ -81,7 +81,7 @@ public class TestTaskFeedbackService {
 	// of special circumstances: Friday 7 August
 	@Test
 	public void testDateSubmittedOutsideBoundsSuccess() {
-		LocalDate dueDate = LocalDate.parse("2026-02-30");
+		LocalDate dueDate = LocalDate.parse("2026-03-30");
 		LocalDate dateSubmitted = LocalDate.parse("2025-02-10");
 		Assert.assertTrue(TaskFeedbackService.Verification(dateSubmitted, dueDate) == 
 				"Entered dates do not fall within the trimester. "
