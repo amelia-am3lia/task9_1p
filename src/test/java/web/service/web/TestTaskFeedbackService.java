@@ -80,7 +80,7 @@ public class TestTaskFeedbackService {
 	// trimester 1 2026 end (supplementary exam period plus one week in case
 	// of special circumstances: 07-08-2026
 	@Test
-	public void testDateSubmittedOutsideBoundsSuccess() {
+	public void testDateSubmittedBeforeStartSuccess() {
 		LocalDate dueDate = LocalDate.parse("2026-03-30");
 		LocalDate dateSubmitted = LocalDate.parse("2025-02-10");
 		Assert.assertTrue(TaskFeedbackService.Verification(dateSubmitted, dueDate) == 
@@ -88,5 +88,13 @@ public class TestTaskFeedbackService {
 				+ "Try again or speak with your tutor if special circumstances apply.");
 	}
 	
-	 
+	// error to be recived when submission date is after trimester end
+	@Test
+	public void testDateSubmittedAfterEndSuccess() {
+		LocalDate dueDate = LocalDate.parse("2026-03-30");
+		LocalDate dateSubmitted = LocalDate.parse("2026-10-10");
+		Assert.assertTrue(TaskFeedbackService.Verification(dateSubmitted, dueDate) == 
+				"Entered dates do not fall within the trimester. "
+				+ "Try again or speak with your tutor if special circumstances apply.");
+	}
 }
