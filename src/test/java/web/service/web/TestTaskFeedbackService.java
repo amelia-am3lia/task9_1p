@@ -175,4 +175,11 @@ public class TestTaskFeedbackService {
 		Assert.assertTrue(TaskFeedbackService.Verification(dateSubmitted, dueDate) == 
 				"Feedback will be given on your assessment.");
 	}
+	@Test
+	public void testMaxDueSuccess() {
+		LocalDate dueDate = LocalDate.parse("2026-08-07");
+		LocalDate dateSubmitted = LocalDate.parse("2026-05-07");
+		Assert.assertTrue(TaskFeedbackService.Verification(dateSubmitted, dueDate) == 
+				"Feedback will be given on your assessment.");
+	}
 }
