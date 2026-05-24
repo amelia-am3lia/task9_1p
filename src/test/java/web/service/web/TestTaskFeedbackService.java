@@ -182,4 +182,12 @@ public class TestTaskFeedbackService {
 		Assert.assertTrue(TaskFeedbackService.Verification(dateSubmitted, dueDate) == 
 				"Feedback will be given on your assessment.");
 	}
+	@Test
+	public void testAboveMaxDueSuccess() {
+		LocalDate dueDate = LocalDate.parse("2026-08-08");
+		LocalDate dateSubmitted = LocalDate.parse("2026-05-07");
+		Assert.assertTrue(TaskFeedbackService.Verification(dateSubmitted, dueDate) == 
+				"Entered dates do not fall within the trimester. "
+				+ "Try again or speak with your tutor if special circumstances apply.");
+	}
 }
