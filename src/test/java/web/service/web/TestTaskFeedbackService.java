@@ -70,10 +70,10 @@ public class TestTaskFeedbackService {
 	@Test
 	public void testSubmittedDateInvalidFail() {
 		LocalDate dueDate = LocalDate.parse("2026-06-10");
-		LocalDate dateSubmitted = "20123-45-67"; //invalid date
-		Assert.assertTrue(TaskFeedbackService.Verification(dateSubmitted, dueDate) == 
+		//invalid date entered directly as param
+		Assert.assertTrue(TaskFeedbackService.Verification("20123-45-67", dueDate) == 
 				"Invalid date. Try again or contact your tutor.");
 	}
 
-	
+	 
 }
