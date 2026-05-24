@@ -117,4 +117,13 @@ public class TestTaskFeedbackService {
 				"Entered dates do not fall within the trimester. "
 				+ "Try again or speak with your tutor if special circumstances apply.");
 	}
+	// test to check correct result if both due date and submit date are out of range
+	@Test
+	public void testDueDateAfterEndSuccess() {
+		LocalDate dueDate = LocalDate.parse("2027-03-30");
+		LocalDate dateSubmitted = LocalDate.parse("2025-03-10");
+		Assert.assertTrue(TaskFeedbackService.Verification(dateSubmitted, dueDate) == 
+				"Entered dates do not fall within the trimester. "
+				+ "Try again or speak with your tutor if special circumstances apply.");
+	}
 }
