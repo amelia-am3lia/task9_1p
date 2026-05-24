@@ -71,8 +71,8 @@ public class TestTaskFeedbackService {
 	public void testSubmittedDateInvalidFail() {
 		LocalDate dueDate = LocalDate.parse("2026-06-10");
 		LocalDate dateSubmitted = "20123-45-67"; //invalid date
-		Assert.assert (TaskFeedbackService.Verification(dateSubmitted, dueDate) == 
-				"No due date found, please contact your tutor for assistance.");
+		Assert.assertTrue(TaskFeedbackService.Verification(dateSubmitted, dueDate) == 
+				"Invalid date. Try again or contact your tutor.");
 	}
 
 	
